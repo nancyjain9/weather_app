@@ -1,0 +1,33 @@
+.card{
+    background: $color-1E213A;
+    @include flex-center-column;
+    font-family: Raleway;
+    min-height: 200px;
+    color: $color-E7E7EB;
+
+    &__title{
+        font-weight: 500;
+        font-size: rem(16);
+        margin-bottom: 12px;
+    }
+
+    &__number{
+        font-weight: bold;
+        font-size: rem(64);
+    }
+
+    &__unit{
+        font-size: rem(30);
+        font-weight: normal;
+        margin-left: 5px;
+    }
+
+    &__figure{
+        margin-top: 20px
+    }
+
+    &__icon{
+        width:30%;
+        vertical-align: text-top;
+    }
+}

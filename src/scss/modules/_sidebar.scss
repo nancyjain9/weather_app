@@ -1,0 +1,98 @@
+.sidebar{
+    width: 30%;
+    background: $color-1E213A;
+    position: relative;
+    padding: 40px;
+    //background-image: url('../../assets/images/Cloud-background.png');
+    @include respond(tab-land) {
+        padding: 15px;
+    }
+
+    @include respond(tab-port) {
+        width: 30%;
+    }
+
+    @include respond(phone) {
+        width: 100%;
+    }
+
+    &__header{
+        display: flex;
+        justify-content: space-between;
+
+        &__search-button{
+            font-family: Raleway;
+            background: $color-6E707A;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            color: $color-E7E7EB;
+            padding: 10px 18px;
+            font-size: rem(16);
+            font-weight: 500;
+            margin-right: 7px;
+        }
+
+        &__set-my-location{
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            background: $color-6E707A;
+            border-radius: 50%;
+            @include flex-center;
+            padding: 8px;
+        }
+    }
+
+    &__main{
+        margin-top: 20px;
+        font-family: Raleway;
+    }
+}
+
+.weather-now{
+    
+    @include flex-center-column;
+    position: relative;
+
+    &__icon{
+        margin-top: 40px;
+    }
+    &__temperature{
+        margin-top: 40px;
+        font-weight: 500;
+        font-size: rem(144);
+        color: $color-E7E7EB;
+
+        &__degree{
+            font-size: rem(40);
+            color: $color-A09FB1;
+        }
+
+    }
+    &__status{
+        margin-top: 40px;
+        font-weight: 600;
+        font-size: rem(36);
+        color: $color-A09FB1;
+    }
+    &__date{
+        margin-top: 40px;
+        &__today{
+            font-weight: 500;
+            font-size: rem(18);
+            color: $color-88869D;
+            &:first-child{
+                margin-right: 10px;
+            }
+        }
+    }
+    &__location{
+        margin-top: 40px;
+        font-weight: 600;
+        font-size: rem(18);
+        color: $color-88869D;
+        &__icon{
+            margin-right: 10px;
+        }
+        &__place{
+
+        }
+    }
+}

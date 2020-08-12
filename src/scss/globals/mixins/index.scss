@@ -1,0 +1,84 @@
+@mixin centerInDiv{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// MEDIA QUERY MANAGER
+/*
+
+0 - 600px: phone
+600-900: tablet portrait
+900-1200: tablet landscape
+1200-1800: normal style
+1800+: big desktop
+  
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+
+*/
+
+@mixin respond($breakpoint){
+    @if $breakpoint == phone {
+        @media (max-width: 600px ){
+             // 600px
+		    @content;
+        }
+       
+    }
+    @if $breakpoint == tab-port {
+		@media (max-width: 900px) {
+			// 900px
+			@content;
+		}
+	}
+	@if $breakpoint == tab-land {
+		@media (max-width: 1200px) {
+			// 1200px
+			@content;
+		}
+	}
+	@if $breakpoint == big-desktop {
+		@media (max-width: 1800px) {
+			// 1800px
+			@content;
+		}
+	}
+}
+
+//to get the box of fixed width and height
+@mixin box($width, $height: $width) {
+	width: $width;
+	height: $height;
+}
+
+@mixin flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+@mixin flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin flex-center-column {
+	@include flex-center;
+	flex-direction: column;
+}
+
+@mixin flex-center-vert {
+	display: flex;
+	align-items: center;
+}
+
+@mixin flex-center-horiz {
+	display: flex;
+	justify-content: center;
+}

@@ -1,0 +1,39 @@
+@import './base/index.scss';
+@import './globals/index.scss';
+@import './modules/index.scss';
+
+html, body {
+    font-size: $base-font-size-px;
+    scroll-behavior: smooth;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// border box
+div, p, h1, h2, h3, h4, a, b, span, code, abbr, em {
+    box-sizing: border-box;
+}
+
+// anchor <a> links
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+
+.page-main{
+    display: flex;
+    min-height: 100vh;
+    font-size: rem(20);
+    @include respond(phone) {
+        flex-direction: column;
+    }
+}
+
+.page-footer{
+    text-align: center;
+    background: $color-100E1D;
+    color: $color-88869D;
+    font-family: Raleway;
+}

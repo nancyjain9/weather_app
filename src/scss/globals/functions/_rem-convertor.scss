@@ -1,0 +1,8 @@
+@function rem($target, $context: $base-font-size) {
+    @if $target == 0 {
+        @return 0;
+    }
+    @else {
+        @return ($target / $base-font-size) + 0rem;
+    }
+}

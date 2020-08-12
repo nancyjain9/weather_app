@@ -1,0 +1,30 @@
+.weather-card-upcoming{
+    background: $color-1E213A;
+    @include flex-center-column;
+    font-family: Raleway;
+    min-height: 200px;
+
+    &__date{
+        font-weight: 500;
+        font-size: rem(16);
+    }
+
+    &__icon{
+        width: 60px;
+    }
+
+    &__temp-range{
+        margin-top: 15px;
+        font-weight: 500;
+        font-size: rem(16);    
+
+        &__item{
+            color: $color-A09FB1;
+            &:first-child{
+                margin-right: 15px;
+                color: $color-E7E7EB;
+            }
+
+        }
+    }
+}

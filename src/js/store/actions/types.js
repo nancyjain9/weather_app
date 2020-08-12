@@ -1,0 +1,13 @@
+export const FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS";
+export const FETCH_DATA_FAIL = "FETCH_DATA_FAIL";
+export const FETCH_DATA = "FETCH_DATA";
+
+export const FETCH_PLACES_SUCCESS = "FETCH_PLACES_SUCCESS";
+export const FETCH_PLACES_FAIL = "FETCH_PLACES_FAIL";
+export const FETCH_PLACES = "FETCH_PLACES";
+
+export const CLEAR_PLACES = "CLEAR_PLACES";
+export const CLEAR_DATA = "CLEAR_DATA";
+
+export const SET_C_DEGREE = "SET_C_DEGREE";
+export const SET_F_DEGREE = "SET_F_DEGREE";
