@@ -7,6 +7,7 @@ import { isArray, isEmpty } from 'lodash';
 
 export const SearchBar = ( props ) => {
     const [ searchValue, setSearchValue ] = useState('');
+    
     const [ submitted, setSubmitted ] = useState(false);
     const { closeSearchBar } = props;
     const dispatch = useDispatch();
@@ -14,10 +15,14 @@ export const SearchBar = ( props ) => {
     //accessing places from store
     const places = useSelector((state) => state.weatherData.places);
 
+    const clearPlaceData = useCallback(
+        () => dispatch({ type: actionTypes.CLEAR_PLACES }),
+        [dispatch]
+    );
+
+
     //clear places initially
-    useEffect(() => {
-        clearPlaceData();
-    }, []);
+    useEffect(clearPlaceData, []);
 
 
     //if data is submitted, fetches places based on user search
@@ -26,7 +31,7 @@ export const SearchBar = ( props ) => {
             getPlacesData(searchValue)
             setSubmitted(false)
         }
-       
+        //eslint-disable-next-line
     }, [submitted] )
 
     //Called when user types in search box
@@ -42,7 +47,8 @@ export const SearchBar = ( props ) => {
     //Called when user presses enter or submits the form
     const onSubmit = (event) => {
         event.preventDefault();
-        setSubmitted(true);
+        //setSubmitted(true);
+        getPlacesData(searchValue);
     };
 
     //Called to fetch places based on user search value
@@ -58,11 +64,7 @@ export const SearchBar = ( props ) => {
         },[dispatch]
     );
 
-    const clearPlaceData = useCallback(
-        () => dispatch({ type: actionTypes.CLEAR_PLACES }),
-        [dispatch]
-    );
-
+    
 
     return(
         <section className='searchBar'>

@@ -29,6 +29,7 @@ function App() {
     if( !places && location ){
       getPlaces(location)
     }
+    //eslint-disable-next-line
   }, [location] )
 
   //if there are are places, set the place with the first place, is called everytime 
@@ -43,6 +44,7 @@ function App() {
     if( place ){
       getWeatherData(place)
     }
+     //eslint-disable-next-line
   }, [place])
 
   //fetch places based on location
