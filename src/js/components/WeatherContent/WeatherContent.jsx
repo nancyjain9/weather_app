@@ -70,33 +70,37 @@ export const WeatherContent = ( props ) => {
                 }
 
             </section>
-            <section className = 'weather-content__highlights'>
-                <h3 className='weather-content__highlights__heading'>Today's HighLights</h3>
-                <section className = 'weather-content__highlights__content'>
-                    <WeatherCardNumber
-                        title = { 'Wind status'}
-                        unit = { 'mph'}
-                        number = { Math.round( todayData.wind_speed ) }
-                        showFigure= { true }
-                    />
-                    <WeatherCardNumber
-                        title = {  'humidity' }
-                        unit = { '%'}
-                        number = { todayData.humidity }
-                        showHumidityBar = { false }
-                    />
-                    <WeatherCardNumber
-                        title = { 'Visibility'}
-                        unit = { 'miles'}
-                        number = { Math.round( todayData.visibility )}
-                    />
-                    <WeatherCardNumber
-                        title = {  'Air Pressure' }
-                        unit = { 'mb'}
-                        number = { todayData.air_pressure }
-                    />
+            {
+                !isEmpty( todayData ) &&
+                <section className = 'weather-content__highlights'>
+                    <h3 className='weather-content__highlights__heading'>Today's HighLights</h3>
+                    <section className = 'weather-content__highlights__content'>
+                        <WeatherCardNumber
+                            title = { 'Wind status'}
+                            unit = { 'mph'}
+                            number = { Math.round( todayData.wind_speed ) }
+                            showFigure= { true }
+                        />
+                        <WeatherCardNumber
+                            title = {  'humidity' }
+                            unit = { '%'}
+                            number = { todayData.humidity }
+                            showHumidityBar = { false }
+                        />
+                        <WeatherCardNumber
+                            title = { 'Visibility'}
+                            unit = { 'miles'}
+                            number = { Math.round( todayData.visibility )}
+                        />
+                        <WeatherCardNumber
+                            title = {  'Air Pressure' }
+                            unit = { 'mb'}
+                            number = { todayData.air_pressure }
+                        />
                 </section>
             </section>
+            }
+            
         </section>
     )
 }

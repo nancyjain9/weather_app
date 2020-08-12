@@ -22,7 +22,10 @@ export const SearchBar = ( props ) => {
 
 
     //clear places initially
-    useEffect(clearPlaceData, []);
+    useEffect(()=>{
+        clearPlaceData()
+        //eslint-disable-next-line
+    }, []);
 
 
     //if data is submitted, fetches places based on user search
@@ -90,7 +93,7 @@ export const SearchBar = ( props ) => {
             <section className ='searchBar__list-container'>
                 { !isEmpty( places ) && <div className = 'searchBar__list-container__title'>Recent Searches</div> }
                 {
-                    isArray( places ) && places.map( ( place ) => {
+                   !isEmpty( places ) && isArray( places ) && places.map( ( place ) => {
                         return (
                             <SearchResultItem
                                 place = { place }
