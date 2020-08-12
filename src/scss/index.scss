@@ -37,3 +37,7 @@ a {
     color: $color-88869D;
     font-family: Raleway;
 }
+
+.preloader{
+    @include placeholder-animation;
+}

@@ -39,7 +39,7 @@ export const SearchResultItem = ( props ) => {
         }
         >
             <span>{ place.title }</span>
-            <span>
+            <span className = 'searchBar__list-container__list__icon'>
                 <img src={ rightArrow } alt={ 'right arrow'}></img>
             </span>
         </article>

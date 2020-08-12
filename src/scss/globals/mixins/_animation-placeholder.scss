@@ -1,0 +1,20 @@
+@mixin placeholder-animation() {
+	$background-color: $color-1E213A;
+
+	@include placeholder-animation-base($background-color);
+}
+
+// base class
+@mixin placeholder-animation-base($background-color) {
+	@keyframes animatePlaceholder {
+		from {
+			background-color: $background-color;
+		}
+
+		to {
+			background-color: darken($background-color, 5%);
+		}
+	}
+
+	animation: animatePlaceholder 1s alternate infinite cubic-bezier(.53,.32,.73,.48);
+}

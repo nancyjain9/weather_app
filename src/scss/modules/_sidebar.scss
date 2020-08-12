@@ -50,6 +50,7 @@
     
     @include flex-center-column;
     position: relative;
+    min-height: 600px;
 
     &__icon{
         margin-top: 40px;

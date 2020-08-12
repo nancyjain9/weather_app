@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as actionTypes from 'js/store/actions/types';
 import { isEmpty } from 'lodash';
 
+
 function App() {
   const [place, setPlace] = useState(null);
   const [location, setLocation] = useState(null);
@@ -75,7 +76,9 @@ function App() {
   return (
     <section className = 'page-container'>
         <main className = 'page-main'>
-           <SideBar setLocation = { getPlaces }/>
+          {
+            <SideBar setLocation = { getPlaces }/>
+          }
            <WeatherContent/>
         </main>
         <footer className='page-footer'>

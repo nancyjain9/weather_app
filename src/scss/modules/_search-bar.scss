@@ -70,12 +70,24 @@
 
         &__list{
             padding: 15px;
-            border: 1px solid $color-616475;
+            
             display: flex;
             height: 50px;
             margin-top: 20px;
             justify-content: space-between;
             cursor: pointer;
+
+            &__icon{
+                opacity: 0;
+            }
+
+            &:hover{
+                border: 1px solid $color-616475;
+                transform: scale(1);
+                .searchBar__list-container__list__icon{
+                    opacity: 1;
+                }
+            }
         }
     }
 }

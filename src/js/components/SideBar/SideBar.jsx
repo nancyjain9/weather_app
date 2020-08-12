@@ -9,6 +9,12 @@ import { isEmpty } from 'lodash';
 import { convertToF } from 'js/utils/convertToF';
 import { convertDate } from 'js/utils/convertDate';
 
+const SideBarPreloader = () => {
+    return(
+      <section className = 'sidebar__main weather-now preloader'></section>
+    )
+  }
+
 export const SideBar = ( props ) => {
     const { setLocation } = props;
     const [isSearchOpen, setIsSearchBarOpen ] = useState(false);
@@ -54,6 +60,7 @@ export const SideBar = ( props ) => {
     }
     
     return(
+        
         <aside 
         className = 'sidebar'
         >
@@ -84,7 +91,7 @@ export const SideBar = ( props ) => {
                         </button>
                     </header>
                     {
-                        !isEmpty(data) &&
+                        isEmpty(data) ? <SideBarPreloader/> :
                         <section className = 'sidebar__main weather-now'>
                             <div className='weather-now__icon'>
                                 <WeatherIcon

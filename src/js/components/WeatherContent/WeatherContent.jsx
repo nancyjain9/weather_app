@@ -6,6 +6,41 @@ import { weatherCardNumber as WeatherCardNumber } from 'js/components/WeatherCar
 import * as actionTypes from 'js/store/actions/types';
 import { isEmpty, isArray } from 'lodash';
 
+const WeatherContentPreloader = () => {
+    return [ 1,2,3,4,5 ].map( () => {
+        return(
+            <article className='weather-card-upcoming preloader' ></article>
+        )
+    })
+}
+
+const WeatherHighLightsPreloader = () => {
+    return [ 1,2,3,4 ].map( () => {
+        return(
+            <article className='card preloader'></article>
+        )
+    })
+}
+
+const WeatherDataPreloader = () => {
+    return(
+        <section className = 'weather-content'>
+            <section className = 'weather-content__temp-buttons'>
+                <button className = 'weather-content__temp-buttons__item preloader'></button>
+                <button className = 'weather-content__temp-buttons__item preloader'></button>
+            </section>
+            <section className = 'weather-content__upcoming-days'>
+                <WeatherContentPreloader/>
+            </section>
+            <section className = 'weather-content__highlights'>
+                <section className = 'weather-content__highlights__content'>
+                    <WeatherHighLightsPreloader/>
+                </section>
+            </section>
+        </section>
+    )
+}
+
 
 const getWeatherList = ( data ) => {
     const weatherInfo = data.length > 1 ? data.slice(1) : []
@@ -15,7 +50,7 @@ const getWeatherList = ( data ) => {
 
 export const WeatherContent = ( props ) => {
     const data = useSelector((state) => state.weatherData.data );
-
+    //const isLoading = useSelector((state) => state.weatherData.isLoading );
     const isCelcius = useSelector((state)=> state.weatherData.isCelsius );
     const dispatch = useDispatch();
 
@@ -44,8 +79,9 @@ export const WeatherContent = ( props ) => {
 
     const weatherData = !isEmpty( data ) ? getWeatherList( data.consolidated_weather ) : [];
     const todayData = !isEmpty( data ) ? data.consolidated_weather[0] : {};
-
+    
     return(
+        isEmpty( weatherData ) ? <WeatherDataPreloader/> :
         <section className = 'weather-content'>
             <section className = 'weather-content__temp-buttons'>
                 <button className = { cDegreeClassName } onClick = { setCDegree }>
@@ -76,10 +112,10 @@ export const WeatherContent = ( props ) => {
                     <h3 className='weather-content__highlights__heading'>Today's HighLights</h3>
                     <section className = 'weather-content__highlights__content'>
                         <WeatherCardNumber
-                            title = { 'Wind status'}
-                            unit = { 'mph'}
-                            number = { Math.round( todayData.wind_speed ) }
-                            showFigure= { true }
+                        title = { 'Wind status'}
+                        unit = { 'mph'}
+                        number = { Math.round( todayData.wind_speed ) }
+                        showFigure= { true }
                         />
                         <WeatherCardNumber
                             title = {  'humidity' }
@@ -97,6 +133,7 @@ export const WeatherContent = ( props ) => {
                             unit = { 'mb'}
                             number = { todayData.air_pressure }
                         />
+                        
                 </section>
             </section>
             }

@@ -62,3 +62,7 @@
         }
     }
 }
+
+.preloader{
+    @include placeholder-animation;
+}
